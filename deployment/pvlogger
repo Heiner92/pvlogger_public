@@ -1,0 +1,16 @@
+
+server {
+    listen 8080;
+    server_name pvlogger;
+    
+    location /media {
+	alias /home/pi/pvlogger/media;    
+    }
+    location /static {
+	alias /home/pi/pvlogger/static;    
+    }
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/pi/pvlogger/pvlogger.sock;
+    }
+}

@@ -1,0 +1,15 @@
+.GB_entry {
+    padding: 10px;
+    //padding-top: 10px;
+    //padding-bottom: 10px;
+    flex-basis: 300px;
+    flex-grow: 10;
+    margin: 0px;
+    //margin-bottom: 5px;
+    //margin-top: 10px;
+    background-color: #ffffff;
+    position: relative;
+    border-left: 2px solid var(--titlebgcol);
+    border-right: 2px solid var(--titlebgcol);
+    border-bottom: 2px solid var(--titlebgcol);
+}

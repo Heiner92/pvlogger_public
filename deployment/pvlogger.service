@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve pvlogger
+After=network.target
+
+[Service]
+User=pi
+Group=www-data
+WorkingDirectory=/home/pi/pvlogger
+Environment="PATH=/home/pi/berryconda3/bin"
+ExecStart=/home/pi/berryconda3/bin/uwsgi --ini uwsgi.ini
+
+[Install]
+WantedBy=multi-user.target

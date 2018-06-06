@@ -1,0 +1,53 @@
+{% extends "index.html" %}
+
+{% load staticfiles %}
+
+{% block extrascripts %}
+<link rel="stylesheet" type="text/css" href="{% static 'guestbook/css/gb_entries.css' %}">  
+{% endblock %}
+
+{% block maincontent %}
+	<!--
+	<div class="widget">
+	-->
+		<div class="widget" >
+
+		
+			{% if messages %}		
+			    {% for message in messages %}
+			    	<div class="alert alert-{{ message.tags }}">{{ message|safe }}</div>
+			    {% endfor %}	
+			{% endif %}
+
+			<!-- Neuer Eintrag Form-->
+			<div class="subtitle">  <span id="section0_title">Post Your Comment/Feedback</span>  </div>
+			<div class="widget" >
+				<form action="{% url 'guestbook:entry-post' %}" method="post">
+					{% csrf_token %}
+					{% include 'bs4_forms.html' with form=form %}
+					<button class="std_btn" type="submit">Save</button>
+			    </form>
+			</div>
+		</div>
+			<!-- Einträge -->						
+			{% for entry in object_list %}
+				<div class="widget" > 
+					<div class="subtitle"> 
+						
+						<span id="section0_title"> 
+						{{ entry.user }} - {{ entry.submit_date|date:"d.m.Y, H:i" }}
+						</span>  
+
+					</div>
+					<div class="GB_entry">
+						{{ entry.text|linebreaks }}
+				    </div>
+			 	</div>
+			{% empty %}
+				<div class="widget" > 
+			    	<h2>No Entries Yet</h2>
+			    </div>
+			{% endfor %}
+		
+	</div>
+{% endblock %}

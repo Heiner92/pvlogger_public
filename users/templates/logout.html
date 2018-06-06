@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block maincontent %}
+<div class="widget">
+	<div class="title">  <span id="section0_title">Logout Bestätigung</span>  </div>
+		<div class="widget">
+			{% if messages %}		
+			    {% for message in messages %}
+			    	<div class="alert alert-{{ message.tags }}">{{ message|safe }}</div>
+			    {% endfor %}	
+			{% endif %}
+		</div>
+</div>
+{% endblock %}

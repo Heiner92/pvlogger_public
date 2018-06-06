@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+
+{% load staticfiles %}
+
+{% block extrascripts %}
+<script src="{% static 'dashboard/js/fill_dashboard.js' %}"></script>
+<script src="{% static 'dashboard/js/Graphs.js' %}"></script>
+<script src="{% static 'dashboard/js/CustomDygraphsInteractions.js' %}"></script>
+<script src="{% static 'dashboard/js/dygraphs_min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/dygraphs.css' %}">  
+<link rel="stylesheet" type="text/css" href="{% static 'shared/css/spinners.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/selector_style.css' %}"> 
+<link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/graph_containers.css' %}"> 
+{% endblock %}
+
+{% block maincontent %}
+	<!-- Bereich für die Plots -->
+    <div class="widget" id="title">
+        <div class="title" id="toptitle" style="font-size:24;text-align: center;">  <span id="section0_title">Dashboard der aufgezeichneten PV-Daten - Aktualisierung der Daten alle 10 Sekunden </span> </div>    
+    </div>
+    <div class="widget" id="p_raw">
+    	<div id="p_raw_dg"></div>
+	</div>
+    <div class="widget" id="p_longterm">
+    	<div id="p_longterm_dg"></div>
+    </div>
+    <div class="widget" id="e_longterm">
+    	<div id="e_longterm_dg"></div>
+    </div>
+    <div class="widget" id="e_dayly_1">
+    	<div id="e_dayly_1_dg"></div>
+    </div>
+    <div class="widget" id="e_dayly_2">
+    	<div id="e_dayly_2_dg"></div>
+    </div>
+    <div class="widget" id="e_dayly_ges">
+    	<div id="e_dayly_ges_dg"></div>
+    </div>
+
+{% endblock %}

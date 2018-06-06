@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% load widget_tweaks %} 
+{% load static %}
+
+{% block extrascripts %}
+<link rel="stylesheet" type="text/css" href="{% static 'UserProfiles/assets/css/buttons.css' %}">
+{% endblock %}
+
+{% block maincontent %}
+<div class="widget">
+	<div class="title">  <span id="section0_title">Change Password</span>  </div>
+	<div class="widget">
+		{% if messages %}		
+		    {% for message in messages %}
+		    	<div class="alert alert-{{ message.tags }}">{{ message|safe }}</div>
+		    {% endfor %}	
+		{% endif %}
+		<form method="post" action="">{% csrf_token %}
+			{% include 'UserProfiles/bs4_forms.html' with form=change_pw_form %}
+			<button class="std_btn" type="submit">Change My Password</button>
+			<button class="std_btn" type="button" onclick="window.location.href = '/UserProfiles/home'; ">Cancel</button>
+
+		</form>
+	</div>	
+</div>
+{% endblock %}

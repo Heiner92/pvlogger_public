@@ -1,0 +1,4 @@
+*.pyc
+pvlogger/secret_key.py
+pvlogger/secret_settings.py
+/db.sqlite3
