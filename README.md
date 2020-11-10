@@ -1,6 +1,8 @@
 ﻿# pvlogger
 Visualisierung von aufgezeichneten PV Daten mittels InfluxDB / Dygraphs / Django 
 
+![](./Screenshot.png)
+
 # InfluxDB installieren
 ```
 wget https://dl.influxdata.com/influxdb/releases/influxdb_1.5.3_armhf.deb
